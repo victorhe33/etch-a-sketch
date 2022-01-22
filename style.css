@@ -1,0 +1,33 @@
+* {
+  border: solid red 0px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} 
+
+.grid-container {
+  padding: 0;
+  margin: 0;
+  border: solid gray 1px;
+  display: flex;
+  flex: 0 0 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 100px;
+  height: 100px;
+}
+
+.grid-box {
+  width: 25px;
+  height: 25px;
+  background-color: white;
+}
+
+.hover {
+  background-color: black;
+}
