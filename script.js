@@ -1,5 +1,5 @@
 //VARIABLES
-let boxAcross = 5;
+let boxAcross = 10;
 let gridNum = boxAcross ** 2;
 let containerWidth = 600;
 let height = containerWidth / boxAcross;
@@ -59,7 +59,7 @@ function makeGrid() {
   }
 
   const targetDiv = document.querySelectorAll('.grid-box');
-  targetDiv.forEach(div => div.addEventListener(`mouseover`, handleHover));
+  targetDiv.forEach(div => div.addEventListener(`mousemove`, handleHover));
 }
 
 function removeDivs() {
