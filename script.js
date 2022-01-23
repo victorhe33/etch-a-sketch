@@ -6,8 +6,10 @@ let height = containerWidth / boxAcross;
 let width = height;
 let color = "black"
 let rainbow = false;
+let mouseDown = false;
 
 //DOM SELECTORS
+const body = document.querySelector("body");
 const containerDiv = document.getElementById("gridContainer");
 const colorPicker = document.getElementById("colorPicker");
 const rainbowButton = document.querySelector("#rainbowButton");
@@ -15,7 +17,9 @@ const eraserButton = document.getElementById("eraserButton");
 const resetButton = document.getElementById("resetButton");
 const slider = document.getElementById("slider");
 const sliderDisplay = document.getElementById("sliderDisplay");
-const toggleCheckbox = document.getElementById("toggleCheckbox");
+const toggleGrid = document.getElementById("toggleGridCheckbox");
+const toggleClick = document.getElementById("toggleClickCheckbox")
+
 
 //DISPLAYS
 sliderDisplay.textContent = `${slider.value} x ${slider.value}`;
@@ -49,13 +53,13 @@ function makeGrid() {
     containerDiv.appendChild(div);
 
     //keep grid overlay state steady
-    if (toggleCheckbox.checked === true) {
+    if (toggleGrid.checked === true) {
        div.classList.add("toggle-grid")
     }
   }
 
   const targetDiv = document.querySelectorAll('.grid-box');
-  targetDiv.forEach(div => div.addEventListener('mouseenter', handleHover));
+  targetDiv.forEach(div => div.addEventListener(`mouseover`, handleHover));
 }
 
 function removeDivs() {
@@ -70,7 +74,7 @@ function handleHover(e) {
     let randomColor = Math.floor(Math.random() * 16777215).toString(16);
     color = `#${randomColor}`;
   }
-
+  if (mouseDown === true && toggleClick.checked === true || toggleClick.checked === false)
   hoveredDiv.style['background-color'] = color;
 }
 
@@ -96,21 +100,28 @@ function handleEraserClick () {
 
 function handleResetClick () {
   removeDivs();
-  toggleCheckbox.checked = false;
+  // toggleGrid.checked = false;
   makeGrid();
 }
 
-function handleToggleClick () {
-  const divGrid = document.querySelectorAll('.grid-box')
+function handleToggleGridClick () {
+  const divGrid = document.querySelectorAll('.grid-box');
   divGrid.forEach(div => div.classList.toggle("toggle-grid"));
 }
+
+// function handleToggleClickClick () {
+
+// }
 
 //EVENT LISTENERS
 colorPicker.addEventListener('change', handleColorPicker);
 rainbowButton.addEventListener('click', handleRainbowClick);
 eraserButton.addEventListener('click', handleEraserClick);
 resetButton.addEventListener('click', handleResetClick);
-toggleCheckbox.addEventListener('change', handleToggleClick)
+toggleGrid.addEventListener('change', handleToggleGridClick);
+// toggleClick.addEventListener('change', handleToggleClickClick);
+body.addEventListener('mousedown', () => mouseDown = true)
+body.addEventListener('mouseup', () => mouseDown = false)
 
 //initiate grid
 makeGrid();
