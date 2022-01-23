@@ -10,6 +10,37 @@
   <title>Etch-A-Sketch</title>
 </head>
 <body>
-  <!-- Nothing in here bro -->
+<div class="body-container">
+  <div class="top-container">
+    <h1>Etch-A-Sketch</h1>
+  </div>
+
+  <div class="middle-container">
+    <div id="controlContainer" class="control-container">
+        <div>
+          <label for="colorPicker">color</label>
+          <input type="color" id="colorPicker" name="colorPicker" value="#000000">
+        </div>
+        <button id="rainbowButton">rainbow</button>
+        <button id="eraserButton">eraser</button>
+        <button id="resetButton">reset</button>
+        <div class="slidecontainer">
+          <input type="range" min="1" max="50" value="5" class="slider" id="slider">
+        </div>
+        <div>size: <span id="sliderDisplay"></span></div>
+        <div id="toggle">grid:
+          <label class="switch">
+            <input id="toggleCheckbox" type="checkbox">
+            <span class="toggle-slider round"></span>
+          </label>
+        </div>
+    </div>
+
+    <div id="gridContainer" class="grid-container"></div>
+  </div>
+  
+  <div class="bottom-container">Copyright &copy;2022 Victor He. The Odin Project</div>
+
+</div>
 </body>
 </html>
