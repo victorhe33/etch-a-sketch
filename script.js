@@ -59,7 +59,8 @@ function makeGrid() {
   }
 
   const targetDiv = document.querySelectorAll('.grid-box');
-  targetDiv.forEach(div => div.addEventListener(`mousemove`, handleHover));
+  targetDiv.forEach(div => div.addEventListener(`mouseover`, handleHover));
+  targetDiv.forEach(div => div.addEventListener(`mousedown`, handleGridClick));
 }
 
 function removeDivs() {
@@ -76,6 +77,11 @@ function handleHover(e) {
   }
   if (mouseDown === true && toggleClick.checked === true || toggleClick.checked === false)
   hoveredDiv.style['background-color'] = color;
+}
+
+function handleGridClick(e) {
+  const clickedDiv = e.target;
+  clickedDiv.style['background-color'] = color;
 }
 
 function handleColorPicker () {
@@ -100,7 +106,7 @@ function handleEraserClick () {
 
 function handleResetClick () {
   removeDivs();
-  // toggleGrid.checked = false;
+  // toggleGrid.checked = false;g
   makeGrid();
 }
 
