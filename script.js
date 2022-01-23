@@ -76,6 +76,7 @@ function handleHover(e) {
 
 function handleColorPicker () {
   color = colorPicker.value;
+  rainbow = false;
 }
 
 function handleRainbowClick () {
@@ -86,6 +87,11 @@ function handleRainbowClick () {
     else {
       rainbow = true;
     }
+}
+
+function handleEraserClick () {
+  color = "white";
+  rainbow = false;
 }
 
 function handleResetClick () {
@@ -102,7 +108,7 @@ function handleToggleClick () {
 //EVENT LISTENERS
 colorPicker.addEventListener('change', handleColorPicker);
 rainbowButton.addEventListener('click', handleRainbowClick);
-eraserButton.addEventListener('click', () => color = "white");
+eraserButton.addEventListener('click', handleEraserClick);
 resetButton.addEventListener('click', handleResetClick);
 toggleCheckbox.addEventListener('change', handleToggleClick)
 
