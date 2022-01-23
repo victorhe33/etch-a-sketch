@@ -37,17 +37,13 @@ slider.oninput = function () {
 
 //FUNCTIONS
 function makeGrid() {
-  //make grid
-
   for (i = 0; i < gridNum; i++) {
-    //make div
     const div = document.createElement("div");
 
     //set grid div attributes
     div.setAttribute('id', `${i}`);
     div.setAttribute('class', `grid-box`)
     div.setAttribute('style', `min-height: ${height}px; min-width: ${width}px;`)
-    // div.textContent = i; //delete later
 
     //append div to container.
     containerDiv.appendChild(div);
@@ -75,6 +71,7 @@ function handleHover(e) {
     let randomColor = Math.floor(Math.random() * 16777215).toString(16);
     color = `#${randomColor}`;
   }
+  //handle click selector
   if (mouseDown === true && toggleClick.checked === true || toggleClick.checked === false)
   hoveredDiv.style['background-color'] = color;
 }
@@ -106,7 +103,6 @@ function handleEraserClick () {
 
 function handleResetClick () {
   removeDivs();
-  // toggleGrid.checked = false;g
   makeGrid();
 }
 
@@ -115,17 +111,12 @@ function handleToggleGridClick () {
   divGrid.forEach(div => div.classList.toggle("toggle-grid"));
 }
 
-// function handleToggleClickClick () {
-
-// }
-
 //EVENT LISTENERS
 colorPicker.addEventListener('change', handleColorPicker);
 rainbowButton.addEventListener('click', handleRainbowClick);
 eraserButton.addEventListener('click', handleEraserClick);
 resetButton.addEventListener('click', handleResetClick);
 toggleGrid.addEventListener('change', handleToggleGridClick);
-// toggleClick.addEventListener('change', handleToggleClickClick);
 body.addEventListener('mousedown', () => mouseDown = true)
 body.addEventListener('mouseup', () => mouseDown = false)
 
