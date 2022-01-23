@@ -7,7 +7,15 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: monospace;
+  background-color: gainsboro;
 } 
+
+h1 {
+  font-size: 40px;
+  font-weight: 200;
+  text-decoration: underline;
+}
 
 .grid-container {
   padding: 0;
@@ -18,8 +26,8 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  max-width: 100px;
-  height: 100px;
+  /* max-width: 100px;
+  height: 100px; */
 }
 
 .grid-box {
@@ -28,6 +36,14 @@ body {
   background-color: white;
 }
 
-.hover {
-  background-color: black;
+.reset-button {
+  margin-top: 25px;
+  font-family: monospace;
+  font-size: 18px;
+  border: solid black 1px;
+  border-radius: 6px;
 }
+
+/* .hover {
+  background-color: black;
+} */
