@@ -61,11 +61,13 @@ makeGrid();
 function handleHover (e) {
   const hoveredDiv = e.target;
   let color = "";
+  console.log(hoveredDiv.style['background-color']);
 
-  if (hoveredDiv.style['background-color'] === "black") {
-      color = "white";
-    } else {
+  if (hoveredDiv.style['background-color'] === "") {
       color = "black";
+    } else {
+    let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+      color = `#${randomColor}`;
     }
   hoveredDiv.style['background-color'] = color;
 }
