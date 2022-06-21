@@ -7,3 +7,5 @@ Odin Project Foundations: Etch-A-Sketch Project
 - CSS (hover)
 - buttons
 - prompts
+
+[live demo](https://victorhe33.github.io/etch-a-sketch/)
